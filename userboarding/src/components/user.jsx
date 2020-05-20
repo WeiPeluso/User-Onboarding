@@ -11,10 +11,10 @@ if(!information){
 return (
  
  
-    <div>
+    <div className="user"> 
 
 
-      <h2>{information.name}</h2>
+      <h3>{information.name}</h3>
       <p>Email: {information.email}</p>
       <p>Password: {information.password}</p>
 

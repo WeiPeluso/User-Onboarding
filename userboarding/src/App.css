@@ -1,3 +1,96 @@
 .App {
   text-align: center;
 }
+
+html{
+  background-color: #F5E8FC;
+}
+
+.useForm{
+
+  width:90%;
+  border: 2px solid #CBBDD4;
+  margin-top:5%;
+  margin-left:5%;
+  border-radius: 5%;
+  padding-bottom: 5%;
+
+}
+
+h2{
+   text-transform: capitalize;
+   font-size: 2rem ;
+
+   color: #8995AD;
+
+}
+h4{
+
+  text-transform: capitalize;
+  font-size: 1.5rem ;
+
+  color:#7D7084;
+}
+
+.inputArea{
+
+  display:flex;
+  flex-direction:column;
+
+  padding-bottom: 5%;
+
+}
+
+label{
+  font-size:1rem;
+  color:#8995AD;
+  text-transform: capitalize;
+}
+
+.errors{
+   color:red;
+   font-size: 0.8rem;
+   padding-bottom: 5%;
+}
+
+#submitButton{
+  width: 30%;
+  background-color: inherit;
+  border-radius: 10%;
+  border: 2px solid #995255;
+  padding: 1%;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+
+}
+
+#submitButton:hover{
+ background:  #995255;
+
+}
+
+
+.user{
+  width:90%;
+  border: 2px solid #CBBDD4;
+  margin-top:5%;
+  margin-left:5%;
+  border-radius: 5%;
+  padding-bottom: 5%;
+  background-color: #FEEBDD;
+
+}
+
+h3{
+  text-transform: capitalize;
+  font-size: 1.5rem ;
+
+  color: #8995AD;
+
+}
+
+p{
+  font-size:1rem;
+  color:#8995AD;
+
+}

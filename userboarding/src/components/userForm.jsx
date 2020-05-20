@@ -14,20 +14,17 @@ function UserForm(props){
     }=props
 
     return (
-      <div>
+
+
+      <div className="useForm">
 
         <form onSubmit={onSubmit}>
-         <h2> Add a User</h2>
 
-         <button disabled={disabled}>Submit</button>
-
-         <div class='errors'>
-            <div>{errors.name}</div>
-            <div>{errors.password}</div>
-            <div>{errors.termsOfService}</div>
-         </div>
+         <h2> Add an User</h2>
 
          <h4>General Information</h4>
+
+         <div className='inputArea'>
 
          <label>Name&nbsp;
              <input
@@ -68,6 +65,15 @@ function UserForm(props){
              />
 
         </label>
+        </div>
+
+        <div className='errors'>
+            <div>{errors.name}</div>
+            <div>{errors.password}</div>
+            <div>{errors.termsOfService}</div>
+         </div>
+
+        <button id="submitButton" disabled={disabled}>Submit</button>
 
         </form>
 
