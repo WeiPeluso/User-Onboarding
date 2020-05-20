@@ -17,7 +17,6 @@ return (
       <h2>{information.name}</h2>
       <p>Email: {information.email}</p>
       <p>Password: {information.password}</p>
-      <p>termOfService: {information.termsOfService}</p>
 
     </div>
 

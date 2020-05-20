@@ -4,6 +4,7 @@ import User from './components/user'
 import UserForm from './components/userForm'
 import axios from 'axios'
 import * as yup from 'yup'
+import formSchema from '../src/validation/FormSchema'
 
 
 
@@ -16,13 +17,23 @@ const initialFormValues={
   termsOfService: false,
 }
 
+const initalFormErrors={
+  name:'',
+  email:'',
+  password:'',
+  termsOfService:false,
+}
+
 const initalUsers=[]
+const initialDisabled=true
 
 
 function App() {
 
   const [users,setUsers]=useState(initalUsers)
   const [formValues, setFormValues]=useState(initialFormValues)
+  const [disabled,setDisabled]=useState(initialDisabled)
+  const [formErrors,setFormErrors]=useState(initalFormErrors)
 
 
 
@@ -30,11 +41,34 @@ function App() {
   const onInputChange=(event)=>{
     const name= event.target.name
     const value=event.target.value
+    
+    yup
+        .reach(formSchema,name)
+        .validate(value)
+        .then(valid=>{
+          setFormErrors({
+            ...formErrors, 
+            [name]: ''
+          })
+        })
+        .catch(error=>{
+            setFormErrors({
+              ...formErrors,
+              [name]:error.errors[0]
+
+            })
+          })
+        
+
+
+
+
     setFormValues({
       ...formValues,
       [name]:value
     })
   }
+
 
   const postNewUser= (newUser)=>{
 
@@ -71,15 +105,25 @@ function App() {
       setFormValues({...formValues, termsOfService:checked })
   }
 
-  if(!users){
-    return "loading"
-  }
-
+     useEffect(()=>{
+      
+      formSchema.isValid(formValues)
+      .then(valid=>{
+        setDisabled(!valid)
+      })
+          
+     }, [formValues])
 
   return (
     <div className="App">
 
-      <UserForm values={formValues} onInputChange={onInputChange} onSubmit={onSubmit} onCheckboxChange={onCheckboxChange}/>
+      <UserForm 
+      values={formValues}
+       onInputChange={onInputChange} 
+       onSubmit={onSubmit} 
+       onCheckboxChange={onCheckboxChange}
+       disabled={disabled}
+       errors={formErrors}/>
 
       {
                users.map((user,index)=>{

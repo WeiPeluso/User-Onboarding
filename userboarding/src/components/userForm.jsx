@@ -9,6 +9,8 @@ function UserForm(props){
         onInputChange,
         onSubmit,
         onCheckboxChange,
+        disabled,
+        errors
     }=props
 
     return (
@@ -17,7 +19,13 @@ function UserForm(props){
         <form onSubmit={onSubmit}>
          <h2> Add a User</h2>
 
-         <button>Submit</button>
+         <button disabled={disabled}>Submit</button>
+
+         <div class='errors'>
+            <div>{errors.name}</div>
+            <div>{errors.password}</div>
+            <div>{errors.termsOfService}</div>
+         </div>
 
          <h4>General Information</h4>
 
@@ -50,7 +58,7 @@ function UserForm(props){
          </label>
 
    
-        <label>Term of Service&nbsp;
+        <label>Terms of Service&nbsp;
 
         <input
                  type='checkbox'
