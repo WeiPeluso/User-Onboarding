@@ -131,7 +131,6 @@ function App() {
                    <User key={index} information={user}/>
                  )
                })
-      
 
       }
 
